@@ -10,6 +10,7 @@ import { formatImageTags } from './helpers';
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 const visionClient = Vision({ projectId: process.env.PROJECT_ID });
+const isProd = process.env.NODE_ENV === 'production';
 
 mongoose.connect(process.env.MDB_URI);
 
@@ -26,4 +27,8 @@ app.post('/upload', upload.single('photo'), (req, res, next) =>
       res.send(formatImageTags(results));
     }));
 
-app.listen(8080, () => console.log('back end up on port 8080'));
+app.get('/test', (req, res) => {
+  res.send('asdads')
+})
+
+app.listen(process.env.PORT || 8080, () => console.log('back end up on port 8080'));

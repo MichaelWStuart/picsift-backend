@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import multer from 'multer';
 import Vision from '@google-cloud/vision';
 
+import photoRoutes from './routes/photo';
 import { formatImageTags } from './helpers';
 
 const app = express();
@@ -15,17 +16,7 @@ const isProd = process.env.NODE_ENV === 'production';
 mongoose.connect(process.env.MDB_URI);
 
 app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
-
-console.log(visionClient)
-
-app.post('/upload', upload.single('photo'), (req, res, next) =>
-//   console.log(req.file)
-//   res.send('dfsfsfdsf')
-// })
-  visionClient.labelDetection({ source: { filename: req.file.path } })
-    .then(results => {
-      res.send(formatImageTags(results));
-    }));
+app.use('/photo', photoRoutes)
 
 app.get('/test', (req, res) => {
   res.send('asdads')

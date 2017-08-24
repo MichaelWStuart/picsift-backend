@@ -9,6 +9,7 @@ import { Photo } from '../models'
 import { formatImageTags } from '../helpers';
 
 const upload = multer({ dest: 'uploads/' });
+const router = Router();
 
 let visionClient;
 
@@ -28,11 +29,8 @@ jsonfile.writeFile('keyFile.json', {
     projectId: process.env.G_PROJECT_ID,
     keyFilename: 'keyFile.json',
   });
+  console.log(visionClient)
 })
-
-
-
-const router = Router();
 
 router.post('/', upload.single('photo'), (req, res, next) =>
   visionClient.labelDetection({ source: { filename: req.file.path } })

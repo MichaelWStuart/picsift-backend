@@ -3,6 +3,7 @@ import { Router } from 'express';
 import superagent from 'superagent';
 import multer from 'multer';
 import Vision from '@google-cloud/vision';
+import mongoose from 'mongoose';
 import { Photo } from '../models'
 import { formatImageTags } from '../helpers';
 
@@ -14,8 +15,13 @@ const router = Router();
 router.post('/', upload.single('photo'), (req, res, next) =>
   visionClient.labelDetection({ source: { filename: req.file.path } })
     .then(results => {
-      console.log(req.file)
-      res.send(formatImageTags(results));
+      Photo.create({
+        name: req.file.originalname,
+        tags: formatImageTags(results),
+      }, (err, photo) => {
+        if (err) res.send(err);
+        res.send(photo);
+      });
     })
     .catch(err => res.send(err)));
 

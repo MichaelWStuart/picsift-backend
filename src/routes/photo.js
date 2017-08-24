@@ -1,6 +1,13 @@
+import {} from 'dotenv/config';
 import { Router } from 'express';
 import superagent from 'superagent';
-// import { Photo } from '../models'
+import multer from 'multer';
+import Vision from '@google-cloud/vision';
+import { Photo } from '../models'
+import { formatImageTags } from '../helpers';
+
+const upload = multer({ dest: 'uploads/' });
+const visionClient = Vision({ projectId: process.env.PROJECT_ID });
 
 const router = Router();
 

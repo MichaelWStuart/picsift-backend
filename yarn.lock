@@ -149,6 +149,12 @@ async@^2.0.1, async@^2.1.2, async@^2.3.0, async@^2.4.0:
   dependencies:
     lodash "^4.14.0"
 
+async@~2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.3.0.tgz#1013d1051047dd320fe24e494d5c66ecaf6147d9"
+  dependencies:
+    lodash "^4.14.0"
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -1126,7 +1132,7 @@ globals@^9.18.0:
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
-google-auth-library@^0.10.0:
+google-auth-library@^0.10.0, google-auth-library@~0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-0.10.0.tgz#6e15babee85fd1dd14d8d128a295b6838d52136e"
   dependencies:
@@ -1180,6 +1186,14 @@ google-proto-files@^0.12.0:
 google-proto-files@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.9.1.tgz#c760c79059bf62ba3ac56e1d1ba7b8d4560803be"
+
+googleapis@^20.1.0:
+  version "20.1.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-20.1.0.tgz#efb2541f0cab123492bc8ccfe09fa6baaf2b84ca"
+  dependencies:
+    async "~2.3.0"
+    google-auth-library "~0.10.0"
+    string-template "~1.0.0"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.4:
   version "4.1.11"
@@ -2149,6 +2163,10 @@ streamsearch@0.1.2:
 string-format-obj@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/string-format-obj/-/string-format-obj-1.1.0.tgz#7635610b1ef397013e8478be98a170e04983d068"
+
+string-template@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/string-template/-/string-template-1.0.0.tgz#9e9f2233dc00f218718ec379a28a5673ecca8b96"
 
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"

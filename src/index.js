@@ -11,7 +11,7 @@ mongoose.connect(process.env.MDB_URI);
 app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
 app.use('/photo', photoRoutes)
 
-app.get('/test', (req, res) => {
+app.post('/test', (req, res) => {
   res.send('shit works');
 })
 

@@ -16,6 +16,7 @@ router.post('/', upload.single('photo'), (req, res, next) =>
     .then(results => {
       console.log(req.file)
       res.send(formatImageTags(results));
-    }));
+    })
+    .catch(err => res.send(err)));
 
 export default router;

@@ -31,9 +31,11 @@ const router = Router();
 // });
 
 const visionClient = Vision({
+  key: process.env.API_KEY,
   projectId: process.env.G_PROJECT_ID,
-  auth: process.env.API_KEY,
 });
+
+console.log(visionClient)
 
 router.post('/', upload.single('photo'), (req, res, next) =>
   visionClient.labelDetection({ source: { filename: req.file.path } })

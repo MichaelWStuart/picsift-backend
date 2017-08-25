@@ -41,7 +41,7 @@ const visionClient = Vision({
 
 router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('hitting route')
-  visionClient.labelDetection({ source: { filename: req.file.path } })
+  visionClient.labelDetection({ source: { filename: req.file.filepath } })
     .then(results => {
       Photo.create({
         name: req.file.originalname,

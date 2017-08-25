@@ -39,7 +39,7 @@ const visionClient = Vision({
 // });
 
 
-router.post('/',  (req, res, next) => {
+router.post('/',  (req, res) => {
   console.log(req)
   res.send('money for code')
   // console.log('hitting route')

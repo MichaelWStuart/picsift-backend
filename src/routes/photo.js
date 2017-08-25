@@ -39,19 +39,21 @@ const visionClient = Vision({
 // });
 
 
-router.post('/', upload.single('photo'), (req, res, next) => {
-  console.log('hitting route')
-  visionClient.labelDetection({ source: { filename: req.file.filepath } })
-    .then(results => {
-      Photo.create({
-        name: req.file.originalname,
-        tags: formatImageTags(results),
-      }, (err, photo) => {
-        if (err) res.send(err);
-        res.send(photo);
-      });
-    })
-    .catch(err => res.send(err));
+router.post('/',  (req, res, next) => {
+  console.log(req)
+  res.send('money for code')
+  // console.log('hitting route')
+  // visionClient.labelDetection({ source: { filename: req.file.path } })
+  //   .then(results => {
+  //     Photo.create({
+  //       name: req.file.originalname,
+  //       tags: formatImageTags(results),
+  //     }, (err, photo) => {
+  //       if (err) res.send(err);
+  //       res.send(photo);
+  //     });
+  //   })
+  //   .catch(err => res.send(err));
 })
 
 export default router;

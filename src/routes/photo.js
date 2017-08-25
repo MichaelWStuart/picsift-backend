@@ -26,17 +26,8 @@ jsonfile.writeFile('keyFile.json', {
 }, () => {
   visionClient = Vision({
     keyFilename: 'keyFile.json',
-    key: process.env.API_KEY,
-    projectId: process.env.G_PROJECT_ID,
   });
-  console.log(visionClient)
 });
-
-// const visionClient = Vision({
-//   key: process.env.API_KEY,
-//   projectId: process.env.G_PROJECT_ID,
-// });
-
 
 router.post('/', upload.single('photo'), (req, res, next) =>
   visionClient.labelDetection({ source: { filename: req.file.path } })

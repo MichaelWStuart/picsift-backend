@@ -51,7 +51,7 @@ router.post('/', upload.single('photo'), (req, res, next) => {
         res.send(photo);
       });
     })
-    .catch(err => res.send(err)));
-}
+    .catch(err => res.send(err));
+})
 
 export default router;

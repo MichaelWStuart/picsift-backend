@@ -46,6 +46,8 @@ router.post('/', upload.single('photo'), (req, res, next) =>
         name: req.file.originalname,
         tags: formatImageTags(results),
       }, (err, photo) => {
+        console.log('err =============> ', err)
+        console.log('photo =============> ', photo)
         if (err) res.send(err);
         res.send(photo);
       });

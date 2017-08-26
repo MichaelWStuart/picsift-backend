@@ -39,8 +39,8 @@ const visionClient = Vision({
 // });
 
 
-router.post('/', upload.array(), (req, res, next) => {
-  console.log('FILE FILE FILE', req.files)
+router.post('/', upload.single(), (req, res, next) => {
+  console.log('FILE FILE FILE', req.file)
   // visionClient.labelDetection({ source: { filename: req.file.path } })
   //   .then(results => {
   //     Photo.create({

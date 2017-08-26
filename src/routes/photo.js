@@ -39,24 +39,25 @@ const visionClient = Vision({
 // });
 
 
-router.post('/', upload.any(), (req, res, next) => {
-  console.log('FILE FILE FILE', req.file)
-  visionClient.labelDetection({ source: { filename: req.file.path } })
-    .then(results => {
-      Photo.create({
-        name: req.file.originalname,
-        tags: formatImageTags(results),
-      }, (err, photo) => {
-        console.log('err =============> ', err)
-        console.log('photo =============> ', photo)
-        if (err) res.send(err);
-        res.send(photo);
-      });
-    })
-    .catch(err => {
-      console.log('CATCH CATCH CATCH', err)
-      res.send(err)
-    });
+router.post('/', upload.array(), (req, res, next) => {
+  console.log('FILE FILE FILE', req.files)
+  // visionClient.labelDetection({ source: { filename: req.file.path } })
+  //   .then(results => {
+  //     Photo.create({
+  //       name: req.file.originalname,
+  //       tags: formatImageTags(results),
+  //     }, (err, photo) => {
+  //       console.log('err =============> ', err)
+  //       console.log('photo =============> ', photo)
+  //       if (err) res.send(err);
+  //       res.send(photo);
+  //     });
+  //   })
+  //   .catch(err => {
+  //     console.log('CATCH CATCH CATCH', err)
+  //     res.send(err)
+  //   });
+  res.send('two hundred')
 });
 
 export default router;

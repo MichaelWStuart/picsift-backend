@@ -39,10 +39,9 @@ const visionClient = Vision({
 // });
 
 
-router.post('/', (req, res) => {
+router.post('/', upload.array(), (req, res, next) => {
+  console.log(req.files)
   console.log(req.body)
-  console.log(req.requestBody)
-  // console.log(req.files)
   res.send('money for code')
   // visionClient.labelDetection({ source: { filename: req.file.path } })
   //   .then(results => {

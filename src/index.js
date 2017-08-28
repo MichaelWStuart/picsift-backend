@@ -10,7 +10,7 @@ mongoose.connect(process.env.MDB_URI);
 
 // 'ws://localhost:8097'
 
-app.use(cors({ origin: 'http://localhost:8081', credentials: true }));
+app.use(cors({ origin: '*', credentials: true }));
 app.use('/photo', photoRoutes)
 
 app.post('/test', (req, res) => {

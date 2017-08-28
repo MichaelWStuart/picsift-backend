@@ -29,7 +29,7 @@ jsonfile.writeFile('picsift-77ef34dda90a.json', {
   });
 });
 
-router.post('/', upload.single(), (req, res, next) => {
+router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('FILE FILE FILE', req.file)
   console.log(visionClient)
   visionClient.labelDetection({ source: { filename: req.file.path } })

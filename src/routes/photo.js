@@ -4,23 +4,23 @@ import multer from 'multer';
 import Vision from '@google-cloud/vision';
 import mongoose from 'mongoose';
 import jsonfile from 'jsonfile';
-import cors from 'cors';
+// import cors from 'cors';
 import { Photo } from '../models'
 import { formatImageTags } from '../helpers';
 
 const upload = multer({ dest: 'uploads/' });
 const router = Router();
-const whitelist = ['ws://localhost:8097', 'http://localhost:8081'];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// const whitelist = ['ws://localhost:8097', 'http://localhost:8081'];
+//
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
 // let visionClient;
 //
@@ -45,7 +45,7 @@ const visionClient = Vision({
   keyFilename: 'picsift-77ef34dda90a.json',
 });
 
-router.post('/', cors(corsOptions), upload.single('photo'), (req, res, next) => {
+router.post('/', upload.single('photo'), (req, res, next) => {
   console.log('FILE FILE FILE', req.file)
   console.log(visionClient)
   visionClient.labelDetection({ source: { filename: req.file.path } })

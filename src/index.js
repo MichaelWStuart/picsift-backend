@@ -8,9 +8,20 @@ const app = express();
 
 mongoose.connect(process.env.MDB_URI);
 
-// 'ws://localhost:8097'
+const whitelist = ['ws://localhost:8097', 'http://localhost:8081'];
 
-app.use(cors({ origin: '*', credentials: true }));
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use('*', cors(corsOptions));
+
 app.use('/photo', photoRoutes)
 
 app.post('/test', (req, res) => {

@@ -42,7 +42,7 @@ const corsOptions = {
 //   });
 // });
 
-visionClient = Vision({
+const visionClient = Vision({
   keyFilename: 'picsift-77ef34dda90a.json',
 });
 

@@ -4,7 +4,7 @@ import multer from 'multer';
 import Vision from '@google-cloud/vision';
 import mongoose from 'mongoose';
 import jsonfile from 'jsonfile';
-impoty cors from 'cors';
+import cors from 'cors';
 import { Photo } from '../models'
 import { formatImageTags } from '../helpers';
 

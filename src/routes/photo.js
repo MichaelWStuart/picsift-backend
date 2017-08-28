@@ -10,7 +10,6 @@ import { formatImageTags } from '../helpers';
 
 const upload = multer({ dest: 'uploads/' });
 const router = Router();
-
 const whitelist = ['ws://localhost:8097', 'http://localhost:8081'];
 
 const corsOptions = {

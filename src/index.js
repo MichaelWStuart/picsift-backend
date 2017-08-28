@@ -8,7 +8,7 @@ const app = express();
 
 mongoose.connect(process.env.MDB_URI);
 
-const whitelist = ['ws://localhost:8097', 'http://localhost:8081'];
+const whitelist = ['209.210.157.165','ws://localhost:8097', 'http://localhost:8081'];
 
 const corsOptions = {
   origin: function (origin, callback) {

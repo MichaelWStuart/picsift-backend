@@ -6,7 +6,7 @@ import photoRoutes from './routes/photo';
 
 const app = express();
 
-mongoose.connect(process.env.MDB_URI);
+// mongoose.connect(process.env.MDB_URI);
 
 app.use(cors({ origin: 'ws://localhost:8097', credentials: true }));
 app.use('/photo', photoRoutes)
